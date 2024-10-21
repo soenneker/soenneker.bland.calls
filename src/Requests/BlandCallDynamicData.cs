@@ -6,7 +6,7 @@ namespace Soenneker.Bland.Calls.Requests;
 /// <summary>
 /// Represents the dynamic data used in the call request.
 /// </summary>
-public class DynamicData
+public class BlandCallDynamicData
 {
     [JsonPropertyName("url")]
     public string Url { get; set; }

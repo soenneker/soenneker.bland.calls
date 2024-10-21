@@ -15,6 +15,14 @@ public interface IBlandCallUtil
     /// </summary>
     /// <param name="request">The call request containing details such as the target phone number and conversation configuration.</param>
     /// <param name="cancellationToken"></param>
-    /// <returns>A <see cref="CallResponse"/> containing information about the call.</returns>
-    ValueTask<CallResponse?> Create(CallRequest request, CancellationToken cancellationToken = default);
+    /// <returns>A <see cref="CreateCallResponse"/> containing information about the call.</returns>
+    ValueTask<CreateCallResponse?> Create(CreateCallRequest request, CancellationToken cancellationToken = default);
+
+    ValueTask<CallDetailsResponse?> Get(string id, CancellationToken cancellationToken = default);
+
+    ValueTask<CallsResponse?> Get(CallFilterRequest filter, CancellationToken cancellationToken = default);
+
+    ValueTask<CallStatusResponse?> Stop(string id, CancellationToken cancellationToken = default);
+
+    ValueTask<CallStatusResponse?> StopAllActive(CancellationToken cancellationToken = default);
 }

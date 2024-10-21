@@ -5,7 +5,7 @@ namespace Soenneker.Bland.Calls.Responses;
 /// <summary>
 /// Represents the response received after initiating a call via the Bland AI API.
 /// </summary>
-public class CallResponse
+public class CreateCallResponse
 {
     [JsonPropertyName("status")]
     public string Status { get; set; }

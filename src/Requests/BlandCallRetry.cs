@@ -5,7 +5,7 @@ namespace Soenneker.Bland.Calls.Requests;
 /// <summary>
 /// Represents retry options for the call request.
 /// </summary>
-public class Retry
+public class BlandCallRetry
 {
     [JsonPropertyName("wait")]
     public int Wait { get; set; }
