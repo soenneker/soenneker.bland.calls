@@ -14,4 +14,8 @@ public class BlandCallUtilTests : FixturedUnitTest
     {
         _util = Resolve<IBlandCallUtil>(true);
     }
+
+    [Fact]
+    public void Default()
+    { }
 }
