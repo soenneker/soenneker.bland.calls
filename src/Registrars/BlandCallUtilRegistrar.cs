@@ -13,18 +13,22 @@ public static class BlandCallUtilRegistrar
     /// <summary>
     /// Adds <see cref="IBlandCallUtil"/> as a singleton service. <para/>
     /// </summary>
-    public static void AddBlandCallUtilAsSingleton(this IServiceCollection services)
+    public static IServiceCollection AddBlandCallUtilAsSingleton(this IServiceCollection services)
     {
         services.AddBlandClientAsSingleton();
         services.TryAddSingleton<IBlandCallUtil, BlandCallUtil>();
+
+        return services;
     }
 
     /// <summary>
     /// Adds <see cref="IBlandCallUtil"/> as a scoped service. <para/>
     /// </summary>
-    public static void AddBlandCallUtilAsScoped(this IServiceCollection services)
+    public static IServiceCollection AddBlandCallUtilAsScoped(this IServiceCollection services)
     {
         services.AddBlandClientAsSingleton();
         services.TryAddScoped<IBlandCallUtil, BlandCallUtil>();
+
+        return services;
     }
 }
