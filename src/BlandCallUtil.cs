@@ -16,18 +16,18 @@ namespace Soenneker.Bland.Calls;
 /// <inheritdoc cref="IBlandCallUtil"/>
 public class BlandCallUtil : IBlandCallUtil
 {
-    private readonly IBlandClient _blandClient;
+    private readonly IBlandClientUtil _blandClientUtil;
     private readonly ILogger<BlandCallUtil> _logger;
 
-    public BlandCallUtil(IBlandClient blandClient, ILogger<BlandCallUtil> logger)
+    public BlandCallUtil(IBlandClientUtil blandClientUtil, ILogger<BlandCallUtil> logger)
     {
-        _blandClient = blandClient;
+        _blandClientUtil = blandClientUtil;
         _logger = logger;
     }
 
     public async ValueTask<CreateCallResponse?> Create(CreateCallRequest request, CancellationToken cancellationToken = default)
     {
-        HttpClient client = await _blandClient.Get(cancellationToken).NoSync();
+        HttpClient client = await _blandClientUtil.Get(cancellationToken).NoSync();
 
         CreateCallResponse? result = await client.SendToType<CreateCallResponse>(HttpMethod.Post, "calls", request, _logger, cancellationToken).NoSync();
 
@@ -36,7 +36,7 @@ public class BlandCallUtil : IBlandCallUtil
 
     public async ValueTask<CallDetailsResponse?> Get(string id, CancellationToken cancellationToken = default)
     {
-        HttpClient client = await _blandClient.Get(cancellationToken).NoSync();
+        HttpClient client = await _blandClientUtil.Get(cancellationToken).NoSync();
 
         CallDetailsResponse? result = await client.SendToType<CallDetailsResponse>($"calls/{id}", _logger, cancellationToken).NoSync();
 
@@ -45,7 +45,7 @@ public class BlandCallUtil : IBlandCallUtil
 
     public async ValueTask<CallsResponse?> Get(CallFilterRequest filter, CancellationToken cancellationToken = default)
     {
-        HttpClient client = await _blandClient.Get(cancellationToken).NoSync();
+        HttpClient client = await _blandClientUtil.Get(cancellationToken).NoSync();
 
         var uri = new UriBuilder
         {
@@ -60,7 +60,7 @@ public class BlandCallUtil : IBlandCallUtil
 
     public async ValueTask<CallStatusResponse?> Stop(string id, CancellationToken cancellationToken = default)
     {
-        HttpClient client = await _blandClient.Get(cancellationToken).NoSync();
+        HttpClient client = await _blandClientUtil.Get(cancellationToken).NoSync();
 
         CallStatusResponse? result = await client.SendToType<CallStatusResponse>(HttpMethod.Post, $"calls/{id}/stop", null, _logger, cancellationToken).NoSync();
 
@@ -69,7 +69,7 @@ public class BlandCallUtil : IBlandCallUtil
 
     public async ValueTask<CallStatusResponse?> StopAllActive(CancellationToken cancellationToken = default)
     {
-        HttpClient client = await _blandClient.Get(cancellationToken).NoSync();
+        HttpClient client = await _blandClientUtil.Get(cancellationToken).NoSync();
 
         CallStatusResponse? result = await client.SendToType<CallStatusResponse>(HttpMethod.Post, "calls/active/stop", null, _logger, cancellationToken).NoSync();
 

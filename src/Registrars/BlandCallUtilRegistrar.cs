@@ -15,7 +15,7 @@ public static class BlandCallUtilRegistrar
     /// </summary>
     public static IServiceCollection AddBlandCallUtilAsSingleton(this IServiceCollection services)
     {
-        services.AddBlandClientAsSingleton();
+        services.AddBlandClientUtilAsSingleton();
         services.TryAddSingleton<IBlandCallUtil, BlandCallUtil>();
 
         return services;
@@ -26,7 +26,7 @@ public static class BlandCallUtilRegistrar
     /// </summary>
     public static IServiceCollection AddBlandCallUtilAsScoped(this IServiceCollection services)
     {
-        services.AddBlandClientAsSingleton();
+        services.AddBlandClientUtilAsSingleton();
         services.TryAddScoped<IBlandCallUtil, BlandCallUtil>();
 
         return services;
