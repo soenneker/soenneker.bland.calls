@@ -42,7 +42,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.Bland.Client" Version="3.0.943" />
+        <PackageReference Include="Soenneker.Bland.Client" Version="3.0.944" />
         <PackageReference Include="Soenneker.Extensions.HttpClient" Version="3.0.3387" />
     </ItemGroup>
 </Project>
