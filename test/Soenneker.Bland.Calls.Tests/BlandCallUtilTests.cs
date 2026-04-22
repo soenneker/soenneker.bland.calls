@@ -1,21 +1,20 @@
 using Soenneker.Bland.Calls.Abstract;
-using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 
 namespace Soenneker.Bland.Calls.Tests;
 
-[Collection("Collection")]
-public class BlandCallUtilTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public class BlandCallUtilTests : HostedUnitTest
 {
     private readonly IBlandCallUtil _util;
 
-    public BlandCallUtilTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public BlandCallUtilTests(Host host) : base(host)
     {
         _util = Resolve<IBlandCallUtil>(true);
     }
 
-    [Fact]
+    [Test]
     public void Default()
     { }
 }
