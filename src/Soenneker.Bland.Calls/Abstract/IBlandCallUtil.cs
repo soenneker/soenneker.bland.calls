@@ -18,11 +18,34 @@ public interface IBlandCallUtil
     /// <returns>A <see cref="CreateCallResponse"/> containing information about the call.</returns>
     ValueTask<CreateCallResponse?> Create(CreateCallRequest request, CancellationToken cancellationToken = default);
 
+    /// <summary>
+    /// Gets the value.
+    /// </summary>
+    /// <param name="id">The identifier.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>A task containing the result of the operation.</returns>
     ValueTask<CallDetailsResponse?> Get(string id, CancellationToken cancellationToken = default);
 
+    /// <summary>
+    /// Gets the value.
+    /// </summary>
+    /// <param name="filter">The filter.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>A task containing the result of the operation.</returns>
     ValueTask<CallsResponse?> Get(CallFilterRequest filter, CancellationToken cancellationToken = default);
 
+    /// <summary>
+    /// Executes the stop operation.
+    /// </summary>
+    /// <param name="id">The identifier.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>A task containing the result of the operation.</returns>
     ValueTask<CallStatusResponse?> Stop(string id, CancellationToken cancellationToken = default);
 
+    /// <summary>
+    /// Executes the stop all active operation.
+    /// </summary>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>A task containing the result of the operation.</returns>
     ValueTask<CallStatusResponse?> StopAllActive(CancellationToken cancellationToken = default);
 }

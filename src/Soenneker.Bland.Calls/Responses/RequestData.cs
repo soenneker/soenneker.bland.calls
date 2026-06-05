@@ -2,6 +2,9 @@ using System.Text.Json.Serialization;
 
 namespace Soenneker.Bland.Calls.Responses;
 
+/// <summary>
+/// Represents the request data.
+/// </summary>
 public class RequestData
 {
     /// <summary>

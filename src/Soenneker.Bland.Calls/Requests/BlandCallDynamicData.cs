@@ -8,9 +8,15 @@ namespace Soenneker.Bland.Calls.Requests;
 /// </summary>
 public class BlandCallDynamicData
 {
+    /// <summary>
+    /// Gets or sets url.
+    /// </summary>
     [JsonPropertyName("url")]
     public string Url { get; set; }
 
+    /// <summary>
+    /// Gets or sets response data.
+    /// </summary>
     [JsonPropertyName("response_data")]
     public List<ResponseData> ResponseData { get; set; } = [];
 }

@@ -3,6 +3,9 @@ using System.Text.Json.Serialization;
 
 namespace Soenneker.Bland.Calls.Responses;
 
+/// <summary>
+/// Represents the call details response.
+/// </summary>
 public class CallDetailsResponse
 {
     /// <summary>
