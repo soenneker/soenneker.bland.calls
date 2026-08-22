@@ -45,6 +45,6 @@
 
     <ItemGroup>
         <PackageReference Include="Soenneker.Bland.Client" Version="4.0.1263" />
-        <PackageReference Include="Soenneker.Extensions.HttpClient" Version="4.0.3958" />
+        <PackageReference Include="Soenneker.Extensions.HttpClient" Version="4.0.3959" />
     </ItemGroup>
 </Project>
