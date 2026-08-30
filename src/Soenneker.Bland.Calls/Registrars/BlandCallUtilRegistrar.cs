@@ -6,7 +6,7 @@ using Soenneker.Bland.Client.Registrars;
 namespace Soenneker.Bland.Calls.Registrars;
 
 /// <summary>
-/// A .NET typesafe implementation of Bland.ai's Calls API
+/// Registers the Bland.ai Calls API utility and client dependencies.
 /// </summary>
 public static class BlandCallUtilRegistrar
 {

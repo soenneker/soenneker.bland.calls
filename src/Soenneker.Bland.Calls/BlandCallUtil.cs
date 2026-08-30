@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Extensions.Logging;
 using Soenneker.Bland.Calls.Abstract;
 using Soenneker.Bland.Calls.Requests;
@@ -13,7 +12,6 @@ using Soenneker.Extensions.Object;
 
 namespace Soenneker.Bland.Calls;
 
-/// <inheritdoc cref="IBlandCallUtil"/>
 public sealed class BlandCallUtil : IBlandCallUtil
 {
     private readonly IBlandClientUtil _blandClientUtil;
@@ -43,13 +41,9 @@ public sealed class BlandCallUtil : IBlandCallUtil
     {
         HttpClient client = await _blandClientUtil.Get(cancellationToken).NoSync();
 
-        var uri = new UriBuilder
-        {
-            Path = "calls",
-            Query = filter.ToQueryString()
-        };
+        string uri = "calls" + filter.ToQueryString();
 
-        return await client.SendToType<CallsResponse>(uri.ToString(), _logger, cancellationToken).NoSync();
+        return await client.SendToType<CallsResponse>(uri, _logger, cancellationToken).NoSync();
     }
 
     public async ValueTask<CallStatusResponse?> Stop(string id, CancellationToken cancellationToken = default)
