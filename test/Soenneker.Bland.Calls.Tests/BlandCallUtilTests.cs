@@ -28,13 +28,13 @@ public class BlandCallUtilTests : HostedUnitTest
     { }
 
     [Test]
-    public async Task Get_with_filter_uses_relative_calls_endpoint()
+    public async Task Get_with_filter_uses_relative_calls_endpoint(CancellationToken cancellationToken)
     {
         var handler = new RecordingHandler();
         var httpClient = new HttpClient(handler) {BaseAddress = new Uri("https://api.bland.ai/v1/")};
         var util = new BlandCallUtil(new TestClientUtil(httpClient), NullLogger<BlandCallUtil>.Instance);
 
-        await util.Get(new CallFilterRequest {Limit = 25, Completed = true});
+        await util.Get(new CallFilterRequest {Limit = 25, Completed = true}, cancellationToken: cancellationToken);
 
         handler.RequestUri.Should().Be(new Uri("https://api.bland.ai/v1/calls?limit=25&ascending=false&completed=true"));
     }
