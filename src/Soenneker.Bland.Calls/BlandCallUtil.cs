@@ -12,6 +12,7 @@ using Soenneker.Extensions.Object;
 
 namespace Soenneker.Bland.Calls;
 
+/// <inheritdoc cref="IBlandCallUtil" />
 public sealed class BlandCallUtil : IBlandCallUtil
 {
     private readonly IBlandClientUtil _blandClientUtil;
