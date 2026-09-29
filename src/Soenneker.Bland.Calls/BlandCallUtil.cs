@@ -12,7 +12,6 @@ using Soenneker.Extensions.Object;
 
 namespace Soenneker.Bland.Calls;
 
-/// <inheritdoc cref="IBlandCallUtil" />
 public sealed class BlandCallUtil : IBlandCallUtil
 {
     private readonly IBlandClientUtil _blandClientUtil;
@@ -42,7 +41,7 @@ public sealed class BlandCallUtil : IBlandCallUtil
     {
         HttpClient client = await _blandClientUtil.Get(cancellationToken).NoSync();
 
-        string uri = "calls" + filter.ToQueryString();
+        string uri = "calls" + filter.ToQueryString(BlandCallJsonContext.Default.CallFilterRequest);
 
         return await client.SendToType<CallsResponse>(uri, _logger, cancellationToken).NoSync();
     }
