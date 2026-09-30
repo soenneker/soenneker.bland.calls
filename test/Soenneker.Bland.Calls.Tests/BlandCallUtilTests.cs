@@ -28,7 +28,7 @@ public class BlandCallUtilTests : HostedUnitTest
     { }
 
     [Test]
-    public async Task Get_with_filter_uses_relative_calls_endpoint(CancellationToken cancellationToken)
+    public async ValueTask Get_with_filter_uses_relative_calls_endpoint(CancellationToken cancellationToken)
     {
         var handler = new RecordingHandler();
         var httpClient = new HttpClient(handler) {BaseAddress = new Uri("https://api.bland.ai/v1/")};
